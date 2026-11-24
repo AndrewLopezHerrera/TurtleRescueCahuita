@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Censo</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f4f6f8;
+            color: #0D2B43;
+        }
+
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #0D2B43;
+            width: 100%;
+            border-bottom: 5px solid #D12028;
+            height: 64px;
+            padding: 0 16px;
+            gap: 12px;
+        }
+
+        header>span {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .form-wrapper {
+            width: 92%;
+            max-width: 680px;
+            margin: 24px auto 40px;
+            background-color: #ffffff;
+            border: 2px solid #0D2B43;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(13, 43, 67, 0.08);
+        }
+
+        .form-title {
+            margin: 0 0 18px;
+            font-size: 1.3rem;
+            color: #0D2B43;
+            border-bottom: 1px solid #dce3ea;
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0D2B43;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: #0D2B43;
+            background-color: #ffffff;
+            border: 1.5px solid #9fb0c0;
+            border-radius: 8px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0D2B43;
+            box-shadow: 0 0 0 3px rgba(13, 43, 67, 0.14);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 84px;
+        }
+
+        .form-actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn-submit {
+            background-color: #0D2B43;
+            color: #ffffff;
+            border: 2px solid #0D2B43;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background-color: #164266;
+            border-color: #164266;
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .feedback.is-visible {
+            display: block;
+        }
+
+        .feedback.is-success {
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            border: 1px solid #81c784;
+        }
+
+        .feedback.is-error {
+            background-color: #fdecea;
+            color: #9f1c22;
+            border: 1px solid #e57373;
+        }
+
+        @media (min-width: 768px) {
+            header>span {
+                font-size: 1.4rem;
+            }
+
+            .form-wrapper {
+                width: 100%;
+                padding: 28px;
+            }
+
+            .form-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px 20px;
+            }
+
+            .form-group--full {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>Registro de Censo</span>
+    </header>
+
+    <main class="form-wrapper">
+        <h1 class="form-title">Nuevo Censo</h1>
+
+        <form id="form-censo">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="in_date_activity">Fecha de actividad</label>
+                    <input type="date" id="in_date_activity" name="in_date_activity" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="in_leader">Nombre de Líder</label>
+                    <input type="text" id="in_leader" name="in_leader" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label for="in_time_sighting">Hora / Fecha de avistamiento</label>
+                    <input type="time" id="in_time_sighting" name="in_time_sighting" step="1" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="in_id_activity_turtle_sighting">Actividad de avistamiento</label>
+                    <select id="in_id_activity_turtle_sighting" name="in_id_activity_turtle_sighting" required>
+                        <option value="1">1 - Patrullaje / Observación</option>
+                        <option value="2">2 - Emergencia</option>
+                        <option value="3" selected>3 - Desovando</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="in_specie_turtle">Especie de tortuga</label>
+                    <select id="in_specie_turtle" name="in_specie_turtle" required>
+                        <option value="1">1 - Verde</option>
+                        <option value="2" selected>2 - Baula</option>
+                        <option value="3">3 - Carey</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="in_id_final_activity_turtle">Actividad final</label>
+                    <select id="in_id_final_activity_turtle" name="in_id_final_activity_turtle" required>
+                        <option value="1">1 - Nido in situ</option>
+                        <option value="2" selected>2 - Nido relocalizado</option>
+                        <option value="3">3 - Sin nido</option>
+                    </select>
+                </div>
+
+                <div class="form-group form-group--full">
+                    <label for="in_comments_activity">Comentarios</label>
+                    <textarea id="in_comments_activity" name="in_comments_activity" placeholder="Ej. Tortuga Joven"
+                        required></textarea>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="btn-guardar" class="btn-submit">Guardar censo</button>
+            </div>
+
+            <div id="mensaje-estado" class="feedback" role="alert" aria-live="polite"></div>
+        </form>
+    </main>
+
+    <script>
+        const ENDPOINT_CENSOS = "https://api.proyectosprototipos.online/api/activitybeach/createactivitybeach";
+        const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+        const form = document.getElementById("form-censo");
+        const btnGuardar = document.getElementById("btn-guardar");
+        const mensajeEstado = document.getElementById("mensaje-estado");
+        document.getElementById("in_leader").value = userInfo.first_name + " " + userInfo.first_last_name;
+        function mostrarMensaje(texto, tipo) {
+            mensajeEstado.textContent = texto;
+            mensajeEstado.className = `feedback is-visible ${tipo === "error" ? "is-error" : "is-success"}`;
+        }
+
+        function construirIsoLocal(fechaInputId, horaInputId, horaPorDefecto = "00:00:00") {
+            const fechaVal = document.getElementById(fechaInputId)?.value; // "YYYY-MM-DD"
+            const horaVal = document.getElementById(horaInputId)?.value;   // "HH:MM" o "HH:MM:SS"
+
+            if (!fechaVal) {
+                throw new Error("Debe seleccionar una fecha válida.");
+            }
+
+            const horaFinal = horaVal
+                ? (horaVal.length === 5 ? `${horaVal}:00` : horaVal)
+                : horaPorDefecto;
+
+            return `${fechaVal}T${horaFinal}`; // Ej. "2026-11-23T11:44:00"
+        }
+
+        function fechaLocalSoloIso(fechaInputId) {
+            const fechaVal = document.getElementById(fechaInputId)?.value;
+            if (!fechaVal) {
+                throw new Error("Debe seleccionar una fecha válida.");
+            }
+            return `${fechaVal}T00:00:00`;
+        }
+
+        function setInitialDateValues() {
+            const ahora = new Date();
+            const offsetMs = ahora.getTimezoneOffset() * 60000;
+            const localIso = new Date(ahora.getTime() - offsetMs).toISOString().slice(0, 19);
+            document.getElementById("in_date_activity").value = localIso;
+            document.getElementById("in_time_sighting").value = localIso;
+        }
+
+        setInitialDateValues();
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const token = sessionStorage.getItem("sessionId");
+            if (!token) {
+                mostrarMensaje("No se encontró el token en sessionStorage (sessionId).", "error");
+                return;
+            }
+            const payload = {
+                in_date_activity: fechaLocalSoloIso("in_date_activity"),
+                in_leader: userInfo.id,
+                in_time_sighting: construirIsoLocal("in_date_activity", "in_time_sighting"),
+                in_id_activity_turtle_sighting: Number(document.getElementById("in_id_activity_turtle_sighting").value),
+                in_specie_turtle: Number(document.getElementById("in_specie_turtle").value),
+                in_id_final_activity_turtle: Number(document.getElementById("in_id_final_activity_turtle").value),
+                in_comments_activity: document.getElementById("in_comments_activity").value.trim(),
+            };
+
+            btnGuardar.disabled = true;
+            btnGuardar.textContent = "Guardando...";
+
+            try {
+                const response = await fetch(ENDPOINT_CENSOS, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) {
+                    const errorTexto = await response.text();
+                    throw new Error(errorTexto || `Error HTTP ${response.status}`);
+                }
+
+                mostrarMensaje("Censo registrado correctamente.", "success");
+                form.reset();
+                setInitialDateValues();
+            } catch (error) {
+                mostrarMensaje(`No se pudo guardar el censo: ${error.message}`, "error");
+            } finally {
+                btnGuardar.disabled = false;
+                btnGuardar.textContent = "Guardar censo";
+                window.location.href = "../census.html";
+            }
+        });
+    </script>
+</body>
+
+</html>

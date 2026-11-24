@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Nido</title>
+    <link rel="stylesheet" href="add_nests.css" />
+    <script src="add_nests.js" defer></script>
+</head>
+<body>
+    <header>
+        <img id="image_greeting" alt="Logo" />
+        <span id="greeting">Registro de Nidos</span>
+    </header>
+
+    <main class="nest-form-wrapper">
+        <h1 class="nest-form-title">Agregar Nido</h1>
+
+        <form id="form-agregar-nido">
+            <div class="nest-form-grid">
+                <div class="nest-form-group nest-form-group--full">
+                    <label for="in_id_beach_activity">Actividad de playa</label>
+                    <select id="in_id_beach_activity" name="in_id_beach_activity" required>
+                        <option value="">Cargando actividades...</option>
+                    </select>
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_vivarium_nest">Vivero</label>
+                    <select id="in_vivarium_nest" name="in_vivarium_nest" required>
+                        <option value="1">1 - Vivero Playa Negra</option>
+                        <option value="2" selected>2 - Vivero Puerto Vargas</option>
+                    </select>
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_hatchery_arrival_time">Hora de llegada al vivero</label>
+                    <input
+                        type="time"
+                        id="in_hatchery_arrival_time"
+                        name="in_hatchery_arrival_time"
+                        step="1"
+                        required
+                    />
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_nest_code">Código de nido</label>
+                    <input
+                        type="text"
+                        id="in_nest_code"
+                        name="in_nest_code"
+                        placeholder="Ej. NID-2026-001"
+                        required
+                    />
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_id_state_nest">Estado del nido</label>
+                    <select id="in_id_state_nest" name="in_id_state_nest" required>
+                        <option value="1" selected>1 - Incubando</option>
+                        <option value="2">2 - Eclosionado</option>
+                        <option value="3">3 - Saqueado</option>
+                    </select>
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_normal_eggs">Huevos normales</label>
+                    <input
+                        type="number"
+                        id="in_normal_eggs"
+                        name="in_normal_eggs"
+                        min="0"
+                        step="1"
+                        required
+                    />
+                </div>
+
+                <div class="nest-form-group">
+                    <label for="in_yolkless_eggs">Huevos vanos</label>
+                    <input
+                        type="number"
+                        id="in_yolkless_eggs"
+                        name="in_yolkless_eggs"
+                        min="0"
+                        step="1"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="nest-form-actions">
+                <button type="submit" id="btn-guardar-nido" class="btn-guardar-nido">
+                    Guardar nido
+                </button>
+            </div>
+
+            <div id="mensaje-nido" class="nest-feedback" role="alert" aria-live="polite"></div>
+        </form>
+    </main>
+</body>
+</html>

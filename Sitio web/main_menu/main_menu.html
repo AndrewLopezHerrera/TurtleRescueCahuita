@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menú principal</title>
+        <script src="main_menu.js"></script>
+        <link rel="stylesheet" href="main_menu.css" />
+    </head>
+    <body>
+        <header>
+            <image id="image_greeting"/>
+            <span id="greeting"></span>
+        </header>
+        <div id="main-menu" class="main-menu">
+            <span>Panel Principal</span>
+            <button onclick="goToReports()">
+                <img src="reporte.png"/>
+                <span>Reportes operativos</span>
+            </button>
+            <button onclick="goToProfile()">
+                <img src="person.png"/>
+                <span>Información personal</span>
+            </button>
+        </div>
+    </body>
+</html>

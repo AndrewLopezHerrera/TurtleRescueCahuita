@@ -1,0 +1,6 @@
+@BackendTurtleRescueCahuita_HostAddress = http://localhost:8080
+
+POST {{BackendTurtleRescueCahuita_HostAddress}}/api/session/login
+Accept: application/json
+
+###

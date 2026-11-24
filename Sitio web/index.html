@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="index.css" />
+        <title>Administrador de Turtle Rescue Cahuita</title>
+    </head>
+    <body>
+        <header>
+            <image id="image_greeting"/>
+            <span id="greeting"></span>
+        </header>
+        <div class="container-login">
+            <image src="logo.png" />
+            <form class="form-login">
+                <span><strong>Iniciar Sesión</strong></span>
+                <div>
+                    <label for="nombre_usuario">Nombre de usuario</label>
+                    <input id="nombre_usuario" placeholder="Ejemplo: juan.perez" required/>
+                </div>
+                <div>
+                    <label for="contrasena">Contraseña</label>
+                    <input id="contrasena" placeholder="Ejemplo: contraseñasegura" type="password" required/>
+                </div>
+                <button type="button" onclick=(login())>Iniciar Sesión</button>
+                <span id="login_error"></span>
+            </form>
+        </div>
+    </body>
+</html>

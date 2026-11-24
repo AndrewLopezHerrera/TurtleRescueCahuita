@@ -1,0 +1,189 @@
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0D2B43;
+    width: 100%;
+    border-bottom: 5px solid #D12028;
+    height: 7%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+header > span {
+    font-size: x-large;
+    padding: 2%;
+    color: white;
+}
+
+header > img {
+    padding: 2%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-add-float {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 90px;
+  height: 90px;
+  z-index: 50;
+  border-radius: 20%;
+  border: none;
+  background-color: #ececec;
+  display: flex;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-add-float:hover {
+  transform: scale(1.2);
+}
+
+.container-census {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-census > span {
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    font-size: larger;
+}
+
+.container-census > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#census {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+#census:last-child {
+    margin-bottom: 35%;
+}
+
+.censo-card {
+  background-color: #ffffff;
+  border: 2px solid #0D2B43;
+  border-top: 5px solid #D12028;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.censo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #dce3ea;
+  padding-bottom: 8px;
+}
+
+.censo-card-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0D2B43;
+}
+
+.censo-badge {
+  background-color: #0D2B43;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.censo-dato {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.censo-etiqueta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.censo-valor {
+  font-size: 0.95rem;
+  color: #0D2B43;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 64px;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    header > span {
+        font-size: 1.5rem;
+        padding: 0 16px;
+    }
+
+    header > img {
+        padding: 8px 0 8px 16px;
+        height: 100%;
+    }
+
+    .container-census {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .btn-flotante {
+        right: 28px;
+        bottom: 28px;
+        width: 60px;
+        height: 60px;
+    }
+
+    #census {
+        width: 40%;
+    }
+
+    #census:last-child {
+    margin-bottom: 2%;
+}
+}

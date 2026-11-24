@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="report.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="report.css" />
+        <title>Reportes</title>
+    </head>
+    <body>
+        <header>
+            <image id="image_greeting"/>
+            <span id="greeting"></span>
+        </header>
+        <body>
+            
+            <span>Reporte del estado de los nidos por vivero</span>
+            <div>
+                <canvas id="nestStatusByVivarium" width="400" height="200"></canvas>
+            </div>
+            <span>Reporte general de estado de los nidos</span>
+            <div>
+                <canvas id="generalStatusNest" width="400" height="200"></canvas>
+            </div>
+            <span>Reporte de la cantidad de nidos encontrados por especie</span>
+            <div>
+                <canvas id="amountNestBySpecie" width="400" height="200"></canvas>
+            </div>
+            <span>Reporte de promedio de huevos encontrados por especie</span>
+            <div>
+                <canvas id="averageEggsBySpecie" width="400" height="200"></canvas>
+            </div>
+            <span>Reporte de total de huevos encontrados por especie</span>
+            <div>
+                <canvas id="amountEggsBySpecie" width="400" height="200"></canvas>
+            </div>
+        </body>
+    </body>
+</html>

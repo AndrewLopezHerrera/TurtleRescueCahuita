@@ -1,0 +1,252 @@
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0D2B43;
+    width: 100%;
+    border-bottom: 5px solid #D12028;
+    height: 7%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+header > span {
+    font-size: x-large;
+    padding: 2%;
+    color: white;
+}
+
+header > img {
+    padding: 2%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.nests-inventory {
+    width: 92%;
+    max-width: 1120px;
+    margin: 24px auto 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nests-filter-bar {
+    background-color: #ffffff;
+    border: 2px solid #0D2B43;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 3px 10px rgba(13, 43, 67, 0.06);
+}
+
+.nests-filter-bar label {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #0D2B43;
+}
+
+.nests-filter-bar select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #0D2B43;
+    background-color: #ffffff;
+    border: 1.5px solid #9fb0c0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nests-filter-bar select:focus {
+    outline: none;
+    border-color: #0D2B43;
+    box-shadow: 0 0 0 3px rgba(13, 43, 67, 0.15);
+}
+
+.nests-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+}
+
+.nests-grid > * {
+    min-width: 0;
+}
+
+.nest-card {
+    background-color: #ffffff;
+    border: 2px solid #0D2B43;
+    border-top: 5px solid #D12028;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(13, 43, 67, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.nests-grid:last-child {
+    margin-bottom: 40%;
+}
+
+.nest-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 43, 67, 0.14);
+}
+
+.nest-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dce3ea;
+}
+
+.nest-card-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0D2B43;
+}
+
+.nest-estado {
+    background-color: #0D2B43;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.nest-card-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+}
+
+.nest-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nest-etiqueta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.nest-valor {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #0D2B43;
+    overflow-wrap: anywhere;
+}
+
+.nest-loading,
+.nest-empty {
+    margin: 0;
+    padding: 18px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    color: #0D2B43;
+    font-size: 0.95rem;
+}
+
+.nest-error {
+    padding: 14px 16px;
+    border-radius: 8px;
+    background-color: #fdecea;
+    color: #9f1c22;
+    border: 1px solid #e57373;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.btn-add-float {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 90px;
+  height: 90px;
+  z-index: 50;
+  border-radius: 20%;
+  border: none;
+  background-color: #ececec;
+  display: flex;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-add-float:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 10%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    body{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nests-inventory {
+        width: 90%;
+    }
+
+    .nests-filter-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 20px;
+    }
+
+    .nests-filter-bar label {
+        white-space: nowrap;
+    }
+
+    .nests-filter-bar select {
+        max-width: 560px;
+    }
+
+    .nests-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .nests-grid:last-child {
+        margin-bottom: 2%;
+    }
+}

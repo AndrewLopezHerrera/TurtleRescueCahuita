@@ -1,0 +1,133 @@
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0D2B43;
+    width: 100%;
+    border-bottom: 5px solid #D12028;
+    height: 7%;
+    padding: 2%;
+}
+
+header > span {
+    font-size: large;
+    padding: 2%;
+    color: white;
+}
+
+header > img {
+    padding: 2%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container-table{
+    padding-top: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.info-table {
+    width: 90%;
+    max-width: 720px;
+    margin: 16px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid #0D2B43;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Encabezado */
+.info-table thead th {
+    background-color: #0D2B43;
+    color: #ffffff;
+    border-bottom: 2px solid #D12028;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.info-table thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.info-table thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+/* Primera columna: etiqueta */
+.info-table tbody tr > td:first-child {
+    width: 38%;
+    background-color: #0D2B43;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    vertical-align: top;
+}
+
+/* Segunda columna: información */
+.info-table tbody tr > td:last-child {
+    width: 62%;
+    color: #0D2B43;
+    padding: 12px 14px;
+    border-bottom: 1px solid #dce3ea;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+/* Filas alternas suaves en la columna de información */
+.info-table tbody tr:nth-child(even) > td:last-child {
+    background-color: #f6f8fa;
+}
+
+/* Quitar borde inferior en la última fila y redondear esquinas inferiores */
+.info-table tbody tr:last-child > td {
+    border-bottom: none;
+}
+
+.info-table tbody tr:last-child > td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.info-table tbody tr:last-child > td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+/* Ajuste en pantallas de PC */
+@media (min-width: 768px) {
+    header {
+        margin: 0;
+        padding: 0;
+        height: 10%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    .info-table {
+        width: 100%;
+    }
+
+    .info-table thead th,
+    .info-table tbody tr > td {
+        padding: 14px 18px;
+    }
+}

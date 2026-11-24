@@ -1,0 +1,133 @@
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0D2B43;
+    width: 100%;
+    border-bottom: 5px solid #D12028;
+    height: 7%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+header > span {
+    font-size: large;
+    padding: 2%;
+    color: white;
+}
+
+header > img {
+    padding: 2%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main-menu{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-menu > span {
+    font-size: xx-large;
+    color: #0D2B43;
+}
+
+.main-menu > button {
+    width: 90%;
+    height: 20%;
+    border: 2px solid #D12028;
+    border-radius: 20px;
+    background-color: #0D2B43;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-menu > button > img {
+    width: 30%;
+    height: auto;
+    object-fit: contain;
+}
+
+.main-menu > button > span {
+    color: white;
+    font-size: large;
+    width: 60%;
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 64px;
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    header > span {
+        font-size: 1.5rem;
+        padding: 0 16px;
+    }
+
+    header > img {
+        padding: 8px 0 8px 16px;
+        height: 100%;
+    }
+
+    .main-menu {
+        height: calc(100% - 64px);
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 24px;
+        box-sizing: border-box;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .main-menu > span {
+        font-size: 2rem;
+    }
+
+    .main-menu > button {
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        min-height: 76px;
+        padding: 14px 20px;
+        border-radius: 14px;
+        justify-content: flex-start;
+        gap: 16px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .main-menu > button > img {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+
+    .main-menu > button > span {
+        font-size: 1.15rem;
+        width: auto;
+        text-align: left;
+    }
+}
